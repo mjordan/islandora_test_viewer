@@ -53,10 +53,8 @@ function islandora_test_viewer_islandora_viewer_info() {
       'configuration' => 'admin/islandora/islandora_viewers/test_viewer',
       'callback' => 'islandora_test_viewer_callback',
       'model' => array(
-        // 'islandora:sp_simple_xml',
         $cmodel,
       ),
-      // 'mimetype' => array('application/xml',
       'mimetype' => array($mimetype,
       ),
     ),
@@ -75,7 +73,8 @@ function islandora_test_viewer_islandora_viewer_info() {
  *   HTML representation of the Islandora Test Viewer.
  */
 function islandora_test_viewer_callback(array $params, IslandoraFedoraObject $islandora_object = NULL) {
-  if (isset($islandora_object['OBJ']) && $islandora_object['OBJ']->mimetype == 'application/xml') {
+  $mimetype = variable_get('islandora_test_viewer_mimetype', '');
+  if (isset($islandora_object['OBJ']) && $islandora_object['OBJ']->mimetype == $mimetype) {
     if (islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $islandora_object['OBJ'])) {
       return theme('islandora_test_viewer', array('islandora_object' => $islandora_object));
     }
