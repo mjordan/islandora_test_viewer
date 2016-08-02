@@ -8,7 +8,7 @@ Islandora viewer that simply prints the object's label. Intended for testing onl
 
 ## Usage
 
-Install and enable. In order to use this viewer, you need to configure which Mime Type and content model you want it to apply to. After you have saved the configuration options, the viewer should show up in the list of available viewers like any other.
+Install and enable. In order to use this viewer, you need to configure which MimeType and content model you want it to apply to. After you have saved the configuration options, the viewer should show up in the list of available viewers like any other.
 
 ## Maintainer
 

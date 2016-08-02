@@ -11,7 +11,7 @@
 function islandora_test_viewer_preprocess_islandora_test_viewer(array &$variables) {
   if (isset($variables['islandora_object'])) {
     $islandora_object = $variables['islandora_object'];
-    $variables['islandora_content'] = '<div>Islandora Test Viewer says the title from Dublin Core is: ' .
+    $variables['islandora_content'] = '<div>Islandora Test Viewer says the object label is: ' .
       $islandora_object->label . '</div>';
   }
 }
