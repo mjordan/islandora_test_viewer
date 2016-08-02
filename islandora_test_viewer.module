@@ -74,8 +74,9 @@ function islandora_test_viewer_islandora_viewer_info() {
  */
 function islandora_test_viewer_callback(array $params, IslandoraFedoraObject $islandora_object = NULL) {
   $mimetype = variable_get('islandora_test_viewer_mimetype', '');
-  if (isset($islandora_object['OBJ']) && $islandora_object['OBJ']->mimetype == $mimetype) {
-    if (islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $islandora_object['OBJ'])) {
+  $dsid = variable_get('islandora_test_viewer_dsid', 'OBJ');
+  if (isset($islandora_object[$dsid]) && $islandora_object['OBJ']->mimetype == $mimetype) {
+    if (islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $islandora_object[$dsid])) {
       return theme('islandora_test_viewer', array('islandora_object' => $islandora_object));
     }
   }
